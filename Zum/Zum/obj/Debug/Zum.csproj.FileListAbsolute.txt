@@ -1,0 +1,6 @@
+C:\Users\inniesharp\Documents\GitHub\Zum\Zum\Zum\obj\Debug\Zum.csprojResolveAssemblyReference.cache
+C:\Users\inniesharp\Documents\GitHub\Zum\Zum\Zum\bin\Debug\Zum.exe.config
+C:\Users\inniesharp\Documents\GitHub\Zum\Zum\Zum\bin\Debug\Zum.exe
+C:\Users\inniesharp\Documents\GitHub\Zum\Zum\Zum\bin\Debug\Zum.pdb
+C:\Users\inniesharp\Documents\GitHub\Zum\Zum\Zum\obj\Debug\Zum.exe
+C:\Users\inniesharp\Documents\GitHub\Zum\Zum\Zum\obj\Debug\Zum.pdb

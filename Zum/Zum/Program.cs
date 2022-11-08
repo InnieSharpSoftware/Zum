@@ -15,14 +15,13 @@ using System.Globalization;
 using System.Web;
 using System.Net;
 using System.Media;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Zum
 {
     class Program
     {
         /*
-        ver Beta 0.4.1
+        ver Beta 0.5.3
         */
         public static string path;
         public static List<string> vars;
@@ -689,7 +688,8 @@ namespace Zum
                                         if (text1 != text2)
                                         {
                                             int ndx = SearchForSTR("FUNC " + func, l);
-                                            i = ndx;
+                                            cam = ndx;
+                                            break;
                                         }
                                     }
                                     if (act == "(")
@@ -697,7 +697,8 @@ namespace Zum
                                         if (text1.StartsWith(text2))
                                         {
                                             int ndx = SearchForSTR("FUNC " + func, l);
-                                            i = ndx;
+                                            cam = ndx;
+                                            break;
                                         }
                                     }
                                     if (act == ")")
@@ -705,7 +706,8 @@ namespace Zum
                                         if (text1.EndsWith(text2))
                                         {
                                             int ndx = SearchForSTR("FUNC " + func, l);
-                                            i = ndx;
+                                            cam = ndx;
+                                            break;
                                         }
                                     }
                                     if (act == "#")
@@ -713,7 +715,8 @@ namespace Zum
                                     	if (String.IsNullOrEmpty(text1) || String.IsNullOrWhiteSpace(text1))
                                         {
                                             int ndx = SearchForSTR("FUNC " + func, l);
-                                            i = ndx;
+                                            cam = ndx;
+                                            break;;
                                         }
                                     }
                                 }
@@ -751,7 +754,8 @@ namespace Zum
                                         if (a == b)
                                         {
                                             int ndx = SearchForSTR("FUNC " + func, l);
-                                            i = ndx;
+                                            cam = ndx;
+                                            break;
                                         }
                                     }
                                     if (act == "!")
@@ -759,7 +763,8 @@ namespace Zum
                                         if (a != b)
                                         {
                                             int ndx = SearchForSTR("FUNC " + func, l);
-                                            i = ndx;
+                                            cam = ndx;
+                                            break;
                                         }
                                     }
                                     if (act == "<")
@@ -767,14 +772,16 @@ namespace Zum
                                         if (a < b)
                                         {
                                             int ndx = SearchForSTR("FUNC " + func, l);
-                                            i = ndx;
+                                            cam = ndx;
+                                            break;
                                         }
                                     }
                                     if (act == ">")
                                         if (a > b)
                                         {
                                             int ndx = SearchForSTR("FUNC " + func, l);
-                                            i = ndx;
+                                            cam = ndx;
+                                            break;
                                         }
                                     }
                                 else if (l[i].StartsWith("MATH "))
@@ -1005,7 +1012,7 @@ namespace Zum
                                         string act1 = resa[1];
                                         string varproc = resa[2];
                                         string proc = "--nfv--";
-                                        string varargs = resa[2];
+                                        string varargs = resa[3];
                                         string args = "--nfv--";
                                         foreach (string ln in vars)
                                         {
@@ -1023,14 +1030,14 @@ namespace Zum
                                                 break;
                                             }
                                         }
-                                        if (act1 == "DEFAULT")
+                                        if (act1 == "ARGS")
                                         {
                                             Process p = new Process();
                                             p.StartInfo.FileName = proc;
                                             p.StartInfo.Arguments = args;
                                             p.Start();
                                         }
-                                        if (act1 == "ARGS")
+                                        if (act1 == "DEFAULT")
                                         {
                                             Process p = new Process();
                                             p.StartInfo.FileName = proc;
@@ -1260,6 +1267,9 @@ namespace Zum
 	                                            break;
 	                                        }
 	                                    }
+	                                    WebClient webClient = new WebClient();
+							            string patha = file;
+							            webClient.DownloadFile(url, patha);
                                     }
                                 }
                                 else if (l[i].StartsWith("WAIT S "))
@@ -1337,6 +1347,15 @@ namespace Zum
                                 {
                                 	path = l[i].Remove(0, 2);
                                 	oth();
+                                }
+                                else if (l[i].StartsWith("REM ") || l[i].StartsWith(":: "))
+                                {
+                                	//cm
+                                }
+                                else
+                                {
+                                	cam = i;
+                                    break;
                                 }
                             }
                         }

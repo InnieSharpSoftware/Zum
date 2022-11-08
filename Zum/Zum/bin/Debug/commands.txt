@@ -1,0 +1,72 @@
+FUNC name
+PRINT var
+CAPTION var
+PRINT;
+REM ^^^ new line
+INPUT;
+:: ^^^ pause
+EXIT
+CLEAR
+INPUTSTR var
+INPUTINT var
+INPUTDBL var
+INPUTKEY var
+VARIABLE var valuetextaboba228
+IO:
+{
+IO FILE EXISTS file var
+IO FILE CREATE file
+IO FILE DELETE file
+IO FILE MOVE source nxt
+IO FILE COPY source nxt
+IO FILE WRITE file text
+IO FILE ADDLINE file text
+IO FILE READ file linecount var
+IO FILE SIZE file var
+IO DIRECTORY EXISTS dir var
+IO DIRECTORY CREATE dir
+IO DIRECTORY DELETE dir
+IO DIRECTORY GETFILEs dir file
+IO DIRECTORY MOVE source nxt
+IO DIRECTORY SIZE dir var
+}
+IFSTR var1 =//!//(//)//# var2 func
+IFINT var2 =//!//<//> var2 func
+MATH var1 +//-//*//"/"//% var2 var
+BACKCOLOR white
+FORECOLOR black
+COLORS:
+white
+black
+green
+red
+blue
+yellow
+gray
+cyan
+magenta
+-=-
+PROCESS:
+{
+PROCESS KILL proc
+PROCESS START DEFAULT proc -
+PROCESS START ARGS proc args
+}
+MISC:
+{
+MISC VARLENGTH varfrom varto
+MISC REMOVE startIndex Length varfrom varto
+MISC SUBSTRING startIndex Length varfrom varto
+MISC INDEXOF symbol text var
+MISC SPLIT symbol text var
+MISC DOWNLOAD url file
+}
+WAIT S time
+WAIT MS time
+RANDOM start end var
+_1
+REM ^^^ REFRESH APP
+_2
+REM ^^^ CHANGE PATH
+REM + :: = Comment
+END_FUNC
