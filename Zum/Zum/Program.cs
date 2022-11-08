@@ -22,7 +22,7 @@ namespace Zum
     class Program
     {
         /*
-        ver Alpha 0.2.3
+        ver Beta 0.4.1
         */
         public static string path;
         public static List<string> vars;
@@ -703,6 +703,14 @@ namespace Zum
                                     if (act == ")")
                                     {
                                         if (text1.EndsWith(text2))
+                                        {
+                                            int ndx = SearchForSTR("FUNC " + func, l);
+                                            i = ndx;
+                                        }
+                                    }
+                                    if (act == "#")
+                                    {
+                                    	if (String.IsNullOrEmpty(text1) || String.IsNullOrWhiteSpace(text1))
                                         {
                                             int ndx = SearchForSTR("FUNC " + func, l);
                                             i = ndx;
