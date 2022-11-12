@@ -11,7 +11,7 @@ INPUTSTR var
 INPUTINT var
 INPUTDBL var
 INPUTKEY var
-VARIABLE var valuetextaboba228
+VARIABLE var valuetextaboba228^^^#var1
 IO:
 {
 IO FILE EXISTS file var

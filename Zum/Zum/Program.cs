@@ -21,7 +21,7 @@ namespace Zum
     class Program
     {
         /*
-        ver Beta 0.5.4
+        ver Beta 0.5.5
         */
         public static string path;
         public static List<string> vars;
@@ -211,43 +211,51 @@ namespace Zum
                                     string[] spltopt = { " " };
                                     string[] spltres = def.Split(spltopt, StringSplitOptions.None);
                                     string var = spltres[0];
-                                    string val = def.Remove(0, var.Length + 1);
-                                    if (val == "date")
+                                    string val1 = def.Remove(0, var.Length + 1);
+                                    string[] spltopt1 = { "^^^" };
+                                    string[] spltres1 = val1.Split(spltopt1, StringSplitOptions.None);
+                                    string g = "";
+                                    for(int f = 0; f < spltres1.Length; f++)
                                     {
-                                        val = DateTime.Now.ToString("dd.MM.yyyy");
-                                    }
-                                    else if (val == "time")
-                                    {
-                                        val = DateTime.Now.ToString("HH:mm:ss");
-                                    }
-                                    else if (val.StartsWith("/"))
-                                    {
-                                        val = val.Remove(0, 1);
-                                    }
-                                    else if (val.StartsWith("#"))
-                                    {
-                                        string var1 = val.Remove(0, 1);
-                                        foreach (string ln in vars)
-                                        {
-                                            if (ln.StartsWith(var1 + "="))
-                                            {
-                                                val = ln.Remove(0, var1.Length + 1);
-                                                break;
-                                            }
-                                        }
-                                    }
+                                    	string val = spltres1[f];
+	                                    if (val == "date")
+	                                    {
+	                                        val = DateTime.Now.ToString("dd.MM.yyyy");
+	                                    }
+	                                    else if (val == "time")
+	                                    {
+	                                        val = DateTime.Now.ToString("HH:mm:ss");
+	                                    }
+	                                    else if (val.StartsWith("/"))
+	                                    {
+	                                        val = val.Remove(0, 1);
+	                                    }
+	                                    else if (val.StartsWith("#"))
+	                                    {
+	                                        string var1 = val.Remove(0, 1);
+	                                        foreach (string ln in vars)
+	                                        {
+	                                            if (ln.StartsWith(var1 + "="))
+	                                            {
+	                                                val = ln.Remove(0, var1.Length + 1);
+	                                                break;
+	                                            }
+	                                        }
+	                                    }
+	                                    g += val;
+                                	}
                                     bool havevar = false;
                                     for (int cm = 0; cm < vars.Count; cm++)
                                     {
                                         if (vars[cm].StartsWith(var + "="))
                                         {
-                                            vars[cm] = var + "=" + val;
+                                            vars[cm] = var + "=" + g;
                                             havevar = true;
                                             break;
                                         }
                                     }
                                     if (!havevar)
-                                        vars.Add(var + "=" + val);
+                                        vars.Add(var + "=" + g);
                                 }
                                 else if (l[i].StartsWith("IO "))
                                 {
