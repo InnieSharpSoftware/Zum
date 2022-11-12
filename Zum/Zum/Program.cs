@@ -21,7 +21,7 @@ namespace Zum
     class Program
     {
         /*
-        ver Beta 0.5.3
+        ver Beta 0.5.4
         */
         public static string path;
         public static List<string> vars;
@@ -1271,6 +1271,8 @@ namespace Zum
 							            string patha = file;
 							            webClient.DownloadFile(url, patha);
                                     }
+                                    else if (act == "FULLSCREEN")
+                                    	FullScreenOn();
                                 }
                                 else if (l[i].StartsWith("WAIT S "))
                                 {

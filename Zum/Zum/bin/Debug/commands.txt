@@ -60,6 +60,7 @@ MISC SUBSTRING startIndex Length varfrom varto
 MISC INDEXOF symbol text var
 MISC SPLIT symbol text var
 MISC DOWNLOAD url file
+MISC FULLSCREEN
 }
 WAIT S time
 WAIT MS time
