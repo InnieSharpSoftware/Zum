@@ -23,6 +23,7 @@ IO FILE WRITE file text
 IO FILE ADDLINE file text
 IO FILE READ file linecount var
 IO FILE SIZE file var
+IO FILE LENGTH file var
 IO DIRECTORY EXISTS dir var
 IO DIRECTORY CREATE dir
 IO DIRECTORY DELETE dir
