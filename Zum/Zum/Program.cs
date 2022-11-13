@@ -559,7 +559,7 @@ namespace Zum
 	                                    break;
 	                                }
 	                            }
-	                            Directory.Delete(dir);
+	                            Directory.Delete(dir, true);
 	                        }
 	                        else if (action == "GETFILES")
 	                        {
