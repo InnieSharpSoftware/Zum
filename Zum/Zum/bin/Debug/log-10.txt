@@ -1,0 +1,5 @@
+17|System.FormatException: Входная строка имела неверный формат.
+   в System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   в System.Double.Parse(String s, NumberStyles style, NumberFormatInfo info)
+   в System.Double.Parse(String s)
+   в Zum.Program.oth() в c:\Users\inniesharp\Documents\GitHub\Zum\Zum\Zum\Program.cs:строка 814
